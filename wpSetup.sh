@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Auther: Dikshant Musale
+
 log_file=pkg.log
 
 #the function for ensuring package availability and installation.
