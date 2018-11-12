@@ -90,11 +90,11 @@ rm -rf /tmp/wordpress&>>$log
 
 #Database creation
 echo "Creating database for new site"
-db_name = $domain
+db_name=$domain
 mysql -u root -p $db_password -e "USE $db_name;" &>> $log
 if [ $? -ne 0 ] 
 then
-	mysql -u root -p$db_password -e "CREATE DATABASE $db_name;" &>> $log
+	mysql -u root -p $db_password -e "CREATE DATABASE $db_name;" &>> $log
 else
 	echo "Database $db_name already exist."
 fi
