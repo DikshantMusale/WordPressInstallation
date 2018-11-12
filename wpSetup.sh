@@ -72,10 +72,10 @@ then
 fi
 
 echo "Creating nginx configuration for new site"
-cp nginx.conf /etc/nginx/sites-available/$domain &>> $log
+cp /etc/nginx/nginx.conf /etc/nginx/sites-available/$domain &>> $log
 sed -i "s/domain_name/$domain/g" /etc/nginx/sites-available/$domain &>> $log
 ln -s /etc/nginx/sites-available/$domain /etc/nginx/sites-enabled/ &>> $log
-systemctl reload nginx &>> $log
+systemctl reload nginx.service &>> $log
 systemctl restart mysql.service &>> $log
 
 #Downloading latest wordpress and configuring it
