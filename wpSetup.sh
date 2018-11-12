@@ -64,13 +64,6 @@ pkgchk unzip
 pkgchk curl
 
 # create nginx configuration for domain
-# check if nginx.conf exist
-if [ ! -f nginx.conf ]
-then 
-	echo "nginx.conf file is missing in current directory. Aborting..." 1>&2
-	exit 1
-fi
-
 echo "Creating nginx configuration for new site"
 cp /etc/nginx/nginx.conf /etc/nginx/sites-available/$domain &>> $log
 sed -i "s/domain_name/$domain/g" /etc/nginx/sites-available/$domain &>> $log
