@@ -39,7 +39,9 @@ pkgchk mysql-server
 # delete the installation configurations of mysql-server
 echo "Deleting temporary configuration of mysql"
 debconf-communicate mysql-server <<< 'PURGE' &>>$log
- 
+
+apt-add-repository ppa:ondrej/php
+
 pkgchk php7.1-fpm 
 pkgchk php7.1-common 
 pkgchk php7.1-mbstring 
